@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/19a195438535861577bd";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/b857975fb0d229dce4a5";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -38348,9 +38348,18 @@
 	Object.defineProperty(exports, "__esModule", {
 	   value: true
 	});
-	usersRoutes.$inject = ['$stateProvider'];
+	usersRoutes.$inject = ['$stateProvider', '$controllerProvider'];
 
-	function usersRoutes($stateProvider) {
+	function usersRoutes($stateProvider, $controllerProvider) {
+	   'use strict';
+
+	   $controllerProvider.register('UsersController', UsersController);
+
+	   function UsersController() {
+	      var self = this;
+
+	      self.name = 'jero';
+	   }
 
 	   $stateProvider.state('users', {
 	      url: '/users',
@@ -38378,6 +38387,7 @@
 
 	var usersComponent = {
 	   template: _users2.default,
+	   controller: 'UsersController',
 	   bindings: {
 	      items: '='
 	   }
@@ -38389,7 +38399,7 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Users</h1>";
+	module.exports = "<h1>Users</h1>\n\n<pre>{{ $ctrl.name | json }}</pre>";
 
 /***/ }
 /******/ ]);
