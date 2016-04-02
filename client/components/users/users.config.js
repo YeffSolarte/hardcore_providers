@@ -7,9 +7,9 @@ function usersRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $p
 
    $controllerProvider.register('UsersController', UsersController);
 
-   UsersController.$inject = ['data'];
+   UsersController.$inject = [];
 
-   function UsersController(data) {
+   function UsersController() {
 
       let self = this;
 

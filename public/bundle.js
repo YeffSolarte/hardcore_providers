@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/7ee7a12b38f39f8e6544";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/be81028af4cbaaa62900";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39708,9 +39708,9 @@
 
 	   $controllerProvider.register('UsersController', UsersController);
 
-	   UsersController.$inject = ['data'];
+	   UsersController.$inject = [];
 
-	   function UsersController(data) {
+	   function UsersController() {
 
 	      var self = this;
 
