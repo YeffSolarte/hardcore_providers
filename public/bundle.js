@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/cb1bc0406b19eeeb99c6";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/c4f80a5ea87ad72efe80";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
