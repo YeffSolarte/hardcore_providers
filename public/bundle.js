@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/c4f80a5ea87ad72efe80";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/7ee7a12b38f39f8e6544";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39870,7 +39870,7 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Home</h1>\n\n";
+	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n\n   </p>\n</div>\n\n";
 
 /***/ }
 /******/ ]);
