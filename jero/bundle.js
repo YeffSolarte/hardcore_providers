@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/a151ebaac2cd0273fdc6";
+/******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39704,10 +39704,7 @@
 
 	   $controllerProvider.register('UsersController', UsersController);
 
-	   UsersController.$inject = [];
-
 	   function UsersController() {
-
 	      var self = this;
 
 	      self.name = 'jero';
@@ -39724,7 +39721,6 @@
 
 	                  console.log('data');
 	                  console.log(data);
-	                  resolve(data);
 	               }, function (error) {
 	                  console.log('error');
 	                  console.log(error);

@@ -1,11 +1,16 @@
-usersRoutes.$inject = ['$stateProvider', '$controllerProvider'];
+usersRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$provide'];
 
-function usersRoutes($stateProvider, $controllerProvider) {
+function usersRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
    'use strict';
+
+   $urlRouterProvider.otherwise('/');
 
    $controllerProvider.register('UsersController', UsersController);
 
-   function UsersController() {
+   UsersController.$inject = ['data'];
+
+   function UsersController(data) {
+
       let self = this;
 
       self.name = 'jero';
@@ -14,7 +19,21 @@ function usersRoutes($stateProvider, $controllerProvider) {
    $stateProvider
       .state('users', {
          url: '/users',
-         template: '<users></users>'
+         template: '<users></users>',
+         resolve: {
+            users:['$q', '$http', ($q, $http) => {
+               return $q((resolve) => {
+                  $http.get('server/users.json').then(({data}) => {
+                     console.log('data');
+                     console.log(data);
+                     resolve(data);
+                  }, error => {
+                     console.log('error');
+                     console.log(error);
+                  });
+               });
+            }]
+         }
       });
 
 }
