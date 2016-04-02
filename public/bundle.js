@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/a151ebaac2cd0273fdc6";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/cb1bc0406b19eeeb99c6";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39648,9 +39648,13 @@
 
 	var _users2 = _interopRequireDefault(_users);
 
+	var _home = __webpack_require__(12);
+
+	var _home2 = _interopRequireDefault(_home);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var componentsModule = _angular2.default.module('components', [_app2.default.name, _users2.default.name]);
+	var componentsModule = _angular2.default.module('components', [_app2.default.name, _users2.default.name, _home2.default.name]);
 
 	exports.default = componentsModule;
 
@@ -39704,9 +39708,9 @@
 
 	   $controllerProvider.register('UsersController', UsersController);
 
-	   UsersController.$inject = [];
+	   UsersController.$inject = ['data'];
 
-	   function UsersController() {
+	   function UsersController(data) {
 
 	      var self = this;
 
@@ -39768,6 +39772,105 @@
 /***/ function(module, exports) {
 
 	module.exports = "<h1>Users</h1>\n\n<pre>{{ $ctrl.name | json }}</pre>";
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+
+	var _angular = __webpack_require__(2);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _app = __webpack_require__(4);
+
+	var _app2 = _interopRequireDefault(_app);
+
+	var _home = __webpack_require__(13);
+
+	var _home2 = _interopRequireDefault(_home);
+
+	var _home3 = __webpack_require__(14);
+
+	var _home4 = _interopRequireDefault(_home3);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var homeModule = _angular2.default.module('home', []).config(_home2.default).component('home', _home4.default);
+
+	exports.default = homeModule;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+	homeRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$provide'];
+
+	function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
+	   'use strict';
+
+	   $urlRouterProvider.otherwise('/');
+
+	   $controllerProvider.register('HomeController', HomeController);
+
+	   HomeController.$inject = [];
+
+	   function HomeController() {
+
+	      var self = this;
+
+	      self.name = 'home';
+	   }
+
+	   $stateProvider.state('home', {
+	      url: '/home',
+	      template: '<home></home>'
+	   });
+	}
+
+	exports.default = homeRoutes;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+
+	var _home = __webpack_require__(15);
+
+	var _home2 = _interopRequireDefault(_home);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var homeComponent = {
+	   template: _home2.default,
+	   controller: 'UsersController',
+	   bindings: {
+	      items: '='
+	   }
+	};
+
+	exports.default = homeComponent;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	module.exports = "<h1>Home</h1>\n\n";
 
 /***/ }
 /******/ ]);
