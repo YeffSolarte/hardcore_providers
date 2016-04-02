@@ -44,6 +44,7 @@
     "angular-ui-router": "1.0.0-alpha.1",
     "babel-loader": "6.2.4",
     "bootstrap": "3.3.6",
-    "flat-ui": "2.1.1"
+    "flat-ui": "2.1.1",
+    "oclazyload": "1.0.9"
   }
 }
