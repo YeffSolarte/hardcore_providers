@@ -8,4 +8,4 @@ let usersComponent = {
    }
 };
 
-export default usersComponent;
+export default angular.module('users.component', []).component('users', usersComponent);

@@ -1,11 +1,8 @@
 import angular from 'angular';
-import appLibraries from '../../app.libraries';
 
-import usersRoutes from './users.config';
-import usersComponent from './users.component';
-
-let usersModule = angular.module('users', [])
-   .config(usersRoutes)
-   .component('users', usersComponent);
+let usersModule = angular.module('users', [
+      require('./users.component').name,
+      require('./users.controller').name
+   ]);
 
 export default usersModule;
