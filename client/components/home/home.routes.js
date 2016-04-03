@@ -13,4 +13,4 @@ function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $pr
 
 }
 
-export default homeRoutes;
+export default angular.module('home.routes', []).config(homeRoutes);
