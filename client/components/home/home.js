@@ -1,11 +1,8 @@
 import angular from 'angular';
-import appLibraries from '../../app.libraries';
 
-import homeRoutes from './home.config';
-import homeComponent from './home.component';
-
-let homeModule = angular.module('home', [])
-   .config(homeRoutes)
-   .component('home', homeComponent);
+let homeModule = angular.module('home', [
+      require('./home.component').name,
+      require('./home.controller').name
+   ]);
 
 export default homeModule;

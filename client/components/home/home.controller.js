@@ -7,4 +7,4 @@ function HomeController() {
 
 }
 
-export default HomeController;
+export default angular.module('home.controller', []).controller('HomeController', HomeController);
