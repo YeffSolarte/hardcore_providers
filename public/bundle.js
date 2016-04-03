@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/be81028af4cbaaa62900";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/5e54f405a52c39353975";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39780,68 +39780,21 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	   value: true
+	      value: true
 	});
 
 	var _angular = __webpack_require__(2);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _app = __webpack_require__(4);
-
-	var _app2 = _interopRequireDefault(_app);
-
-	var _home = __webpack_require__(13);
-
-	var _home2 = _interopRequireDefault(_home);
-
-	var _home3 = __webpack_require__(14);
-
-	var _home4 = _interopRequireDefault(_home3);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var homeModule = _angular2.default.module('home', []).config(_home2.default).component('home', _home4.default);
+	var homeModule = _angular2.default.module('home', [__webpack_require__(13).name, __webpack_require__(15).name]);
 
 	exports.default = homeModule;
 
 /***/ },
 /* 13 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	homeRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$provide'];
-
-	function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
-	   'use strict';
-
-	   $urlRouterProvider.otherwise('/');
-
-	   $controllerProvider.register('HomeController', HomeController);
-
-	   HomeController.$inject = [];
-
-	   function HomeController() {
-
-	      var self = this;
-
-	      self.name = 'home';
-	   }
-
-	   $stateProvider.state('home', {
-	      url: '/home',
-	      template: '<home></home>'
-	   });
-	}
-
-	exports.default = homeRoutes;
-
-/***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39850,7 +39803,7 @@
 	   value: true
 	});
 
-	var _home = __webpack_require__(15);
+	var _home = __webpack_require__(14);
 
 	var _home2 = _interopRequireDefault(_home);
 
@@ -39858,19 +39811,38 @@
 
 	var homeComponent = {
 	   template: _home2.default,
-	   controller: 'UsersController',
+	   controller: 'HomeController',
 	   bindings: {
 	      items: '='
 	   }
 	};
 
-	exports.default = homeComponent;
+	exports.default = angular.module('home.component', []).controller('home', homeComponent);
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n\n   </p>\n</div>\n\n";
 
 /***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n\n   </p>\n</div>\n\n";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+	HomeController.$inject = [];
+
+	function HomeController() {
+	   'use strict';
+
+	   var self = this;
+	}
+
+	exports.default = angular.module('home.controller', []).controller('HomeController', HomeController);
 
 /***/ }
 /******/ ]);

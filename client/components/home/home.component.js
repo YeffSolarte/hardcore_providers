@@ -8,4 +8,4 @@ let homeComponent = {
    }
 };
 
-export default homeComponent;
+export default angular.module('home.component', []).controller('home', homeComponent);
