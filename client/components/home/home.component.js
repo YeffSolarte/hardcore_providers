@@ -2,7 +2,7 @@ import template from './home.html';
 
 let homeComponent = {
    template,
-   controller: 'UsersController',
+   controller: 'HomeController',
    bindings: {
       items: '='
    }
