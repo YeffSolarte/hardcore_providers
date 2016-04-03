@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/5e54f405a52c39353975";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/cd3e1f010787b04af777";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -57,17 +57,18 @@
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _app = __webpack_require__(4);
+	var _angularUiRouter = __webpack_require__(4);
 
-	var _app2 = _interopRequireDefault(_app);
+	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _components = __webpack_require__(7);
+	var _oclazyload = __webpack_require__(5);
 
-	var _components2 = _interopRequireDefault(_components);
+	var _oclazyload2 = _interopRequireDefault(_oclazyload);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_angular2.default.module('app', [_app2.default.name, _components2.default.name]);
+	_angular2.default.module('app', [_angularUiRouter2.default, _oclazyload2.default, __webpack_require__(6).default.name]);
+	//import components from './components/components';
 
 	_angular2.default.bootstrap(document, ['app'], {
 	   strictDi: true
@@ -30804,34 +30805,6 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	      value: true
-	});
-
-	var _angular = __webpack_require__(2);
-
-	var _angular2 = _interopRequireDefault(_angular);
-
-	var _angularUiRouter = __webpack_require__(5);
-
-	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
-
-	var _oclazyload = __webpack_require__(6);
-
-	var _oclazyload2 = _interopRequireDefault(_oclazyload);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var appLibrariesModule = _angular2.default.module('libraries', [_angularUiRouter2.default, _oclazyload2.default]);
-
-	exports.default = appLibrariesModule;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/*!
 	 * State-based routing for AngularJS
 	 * @version v1.0.0-alpha.1
@@ -38284,7 +38257,7 @@
 	//# sourceMappingURL=angular-ui-router.js.map
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/**
@@ -39627,71 +39600,7 @@
 	}
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	      value: true
-	});
-
-	var _angular = __webpack_require__(2);
-
-	var _angular2 = _interopRequireDefault(_angular);
-
-	var _app = __webpack_require__(4);
-
-	var _app2 = _interopRequireDefault(_app);
-
-	var _users = __webpack_require__(8);
-
-	var _users2 = _interopRequireDefault(_users);
-
-	var _home = __webpack_require__(12);
-
-	var _home2 = _interopRequireDefault(_home);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var componentsModule = _angular2.default.module('components', [_app2.default.name, _users2.default.name, _home2.default.name]);
-
-	exports.default = componentsModule;
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-
-	var _angular = __webpack_require__(2);
-
-	var _angular2 = _interopRequireDefault(_angular);
-
-	var _app = __webpack_require__(4);
-
-	var _app2 = _interopRequireDefault(_app);
-
-	var _users = __webpack_require__(9);
-
-	var _users2 = _interopRequireDefault(_users);
-
-	var _users3 = __webpack_require__(10);
-
-	var _users4 = _interopRequireDefault(_users3);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var usersModule = _angular2.default.module('users', []).config(_users2.default).component('users', _users4.default);
-
-	exports.default = usersModule;
-
-/***/ },
-/* 9 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -39699,150 +39608,20 @@
 	Object.defineProperty(exports, "__esModule", {
 	   value: true
 	});
-	usersRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$provide'];
+	homeRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$provide'];
 
-	function usersRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
+	function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
 	   'use strict';
 
-	   $urlRouterProvider.otherwise('/');
+	   $urlRouterProvider.otherwise('/home');
 
-	   $controllerProvider.register('UsersController', UsersController);
-
-	   UsersController.$inject = [];
-
-	   function UsersController() {
-
-	      var self = this;
-
-	      self.name = 'jero';
-	   }
-
-	   $stateProvider.state('users', {
-	      url: '/users',
-	      template: '<users></users>',
-	      resolve: {
-	         users: ['$q', '$http', function ($q, $http) {
-	            return $q(function (resolve) {
-	               $http.get('server/users.json').then(function (_ref) {
-	                  var data = _ref.data;
-
-	                  console.log('data');
-	                  console.log(data);
-	                  resolve(data);
-	               }, function (error) {
-	                  console.log('error');
-	                  console.log(error);
-	               });
-	            });
-	         }]
-	      }
+	   $stateProvider.state('home', {
+	      url: '/home',
+	      template: '<home></home>'
 	   });
 	}
 
-	exports.default = usersRoutes;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-
-	var _users = __webpack_require__(11);
-
-	var _users2 = _interopRequireDefault(_users);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var usersComponent = {
-	   template: _users2.default,
-	   controller: 'UsersController',
-	   bindings: {
-	      items: '='
-	   }
-	};
-
-	exports.default = usersComponent;
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	module.exports = "<h1>Users</h1>\n\n<pre>{{ $ctrl.name | json }}</pre>";
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	      value: true
-	});
-
-	var _angular = __webpack_require__(2);
-
-	var _angular2 = _interopRequireDefault(_angular);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var homeModule = _angular2.default.module('home', [__webpack_require__(13).name, __webpack_require__(15).name]);
-
-	exports.default = homeModule;
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-
-	var _home = __webpack_require__(14);
-
-	var _home2 = _interopRequireDefault(_home);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var homeComponent = {
-	   template: _home2.default,
-	   controller: 'HomeController',
-	   bindings: {
-	      items: '='
-	   }
-	};
-
-	exports.default = angular.module('home.component', []).controller('home', homeComponent);
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n\n   </p>\n</div>\n\n";
-
-/***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	   value: true
-	});
-	HomeController.$inject = [];
-
-	function HomeController() {
-	   'use strict';
-
-	   var self = this;
-	}
-
-	exports.default = angular.module('home.controller', []).controller('HomeController', HomeController);
+	exports.default = angular.module('home.routes', []).config(homeRoutes);
 
 /***/ }
 /******/ ]);
