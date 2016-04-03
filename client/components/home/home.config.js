@@ -3,18 +3,7 @@ homeRoutes.$inject = ['$stateProvider', '$urlRouterProvider', '$controllerProvid
 function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $provide) {
    'use strict';
 
-   $urlRouterProvider.otherwise('/');
-
-   $controllerProvider.register('HomeController', HomeController);
-
-   HomeController.$inject = [];
-
-   function HomeController() {
-
-      let self = this;
-
-      self.name = 'home';
-   }
+   $urlRouterProvider.otherwise('/home');
 
    $stateProvider
       .state('home', {
