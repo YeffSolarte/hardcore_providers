@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/be81028af4cbaaa62900";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/68899a6d3fea1898ca93";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -39858,7 +39858,7 @@
 
 	var homeComponent = {
 	   template: _home2.default,
-	   controller: 'UsersController',
+	   controller: 'HomeController',
 	   bindings: {
 	      items: '='
 	   }
