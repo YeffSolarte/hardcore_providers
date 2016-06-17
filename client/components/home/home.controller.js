@@ -1,8 +1,6 @@
 class HomeController {
 
    constructor(dragularService, $timeout, $element) {
-      console.log('--- $element.children().children().eq(2) ---');
-      console.dir($element.children().children().eq(2));
 
       this.items = [{
          items: [{
@@ -42,6 +40,9 @@ class HomeController {
             parentContainers = container.children(),
             nestedContainers = [];
 
+         console.log('--- container ---');
+         console.dir(container);
+
          dragularService(container, {
             moves: (el, container, handle) => {
                return handle.classList.contains('row-handle');
@@ -52,6 +53,9 @@ class HomeController {
 
          // collect nested contianers
          for (var i = 0; i < parentContainers.length; i++) {
+            console.log('--- parentContainers.eq(i).children()[1] ---');
+            console.log('--- parentContainers.eq(i).children()[1] ---');
+            console.log(parentContainers.eq(i).children()[1]);
             nestedContainers.push(parentContainers.eq(i).children()[1]);
          }
 
@@ -70,7 +74,7 @@ class HomeController {
             nameSpace: 'cells'
          });
 
-      }, 0);
+      }, 10);
 
    }
 

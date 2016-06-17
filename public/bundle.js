@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/150dd27ae95744a86990";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/2ac501d423a65b5357be";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -41133,7 +41133,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n\n   </p>\n\n\n   <div class='containerVertical'>\n      <div ng-repeat=\"item in $ctrl.items\" class='exampleRow'>\n         <div class=\"row-handle\">Row {{::$index}}</div>\n         <div class=\"exampleRow exampleCell containerNested\">\n            <div ng-repeat=\"item in item.items\" class=\"exampleCell\">{{item.content}}</div>\n         </div>\n      </div>\n   </div>\n\n</div>\n\n";
+	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n   </p>\n\n   <div class='containerVertical'>\n      <div ng-repeat=\"item in $ctrl.items\" class='exampleRow'>\n         <div class=\"row-handle\">Row {{::$index}}</div>\n         <div class=\"exampleRow exampleCell containerNested\">\n            <div ng-repeat=\"item in item.items\" class=\"exampleCell\">{{item.content}}</div>\n         </div>\n      </div>\n   </div>\n\n</div>\n\n";
 
 /***/ },
 /* 20 */
@@ -41151,9 +41151,6 @@
 	   var _this = this;
 
 	   _classCallCheck(this, HomeController);
-
-	   console.log('--- $element.children().children().eq(2) ---');
-	   console.dir($element.children().children().eq(2));
 
 	   this.items = [{
 	      items: [{
@@ -41194,6 +41191,9 @@
 	          parentContainers = container.children(),
 	          nestedContainers = [];
 
+	      console.log('--- container ---');
+	      console.dir(container);
+
 	      dragularService(container, {
 	         moves: function moves(el, container, handle) {
 	            return handle.classList.contains('row-handle');
@@ -41204,6 +41204,9 @@
 
 	      // collect nested contianers
 	      for (var i = 0; i < parentContainers.length; i++) {
+	         console.log('--- parentContainers.eq(i).children()[1] ---');
+	         console.log('--- parentContainers.eq(i).children()[1] ---');
+	         console.log(parentContainers.eq(i).children()[1]);
 	         nestedContainers.push(parentContainers.eq(i).children()[1]);
 	      }
 
@@ -41221,7 +41224,7 @@
 	         }(),
 	         nameSpace: 'cells'
 	      });
-	   }, 0);
+	   }, 10);
 	};
 
 	HomeController.$inject = ['dragularService', '$timeout', '$element'];
@@ -41263,7 +41266,7 @@
 
 
 	// module
-	exports.push([module.id, ".exampleRow {\n   display: flex;\n   flex-direction: row;\n}\n\n.exampleCell {\n   flex-grow: 1;\n}\n\n.exampleRow,\n.exampleCell {\n   margin: 10px;\n   padding: 10px;\n   background-color: rgba(0, 0, 0, 0.2);\n   cursor: move;\n   cursor: grab;\n   cursor: -moz-grab;\n   cursor: -webkit-grab;\n}\n", ""]);
+	exports.push([module.id, ".gu-mirror {\n   position: fixed !important;\n   margin: 0 !important;\n   width: z-index 9999 !important;\n   opacity: 0.8;\n}\n\n.gu-hide {\n   display: none !important;\n}\n\n.gu-unselectable {\n   -webkit-user-select: none !important;\n   -moz-user-select: none !important;\n   -ms-user-select: none !important;\n   user-select: none !important;\n}\n\n.gu-transit {\n   opacity: 0.2;\n}\n\n\n.exampleRow {\n   display: flex;\n   flex-direction: row;\n}\n\n.exampleCell {\n   flex-grow: 1;\n}\n\n.exampleRow,\n.exampleCell {\n   margin: 10px;\n   padding: 10px;\n   background-color: rgba(0, 0, 0, 0.2);\n   cursor: move;\n   cursor: grab;\n   cursor: -moz-grab;\n   cursor: -webkit-grab;\n}\n\n.containerVertical div, .gu-mirror {\n   margin: 10px;\n   padding: 10px;\n   background-color: rgba(0, 0, 0, 0.2);\n   -webkit-transition: opacity 0.4s ease-in-out;\n   transition: opacity 0.4s ease-in-out;\n   cursor: move;\n   cursor: grab;\n   cursor: -webkit-grab;\n}\n", ""]);
 
 	// exports
 

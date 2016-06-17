@@ -1,3 +1,26 @@
+.gu-mirror {
+   position: fixed !important;
+   margin: 0 !important;
+   width: z-index 9999 !important;
+   opacity: 0.8;
+}
+
+.gu-hide {
+   display: none !important;
+}
+
+.gu-unselectable {
+   -webkit-user-select: none !important;
+   -moz-user-select: none !important;
+   -ms-user-select: none !important;
+   user-select: none !important;
+}
+
+.gu-transit {
+   opacity: 0.2;
+}
+
+
 .exampleRow {
    display: flex;
    flex-direction: row;
@@ -15,5 +38,16 @@
    cursor: move;
    cursor: grab;
    cursor: -moz-grab;
+   cursor: -webkit-grab;
+}
+
+.containerVertical div, .gu-mirror {
+   margin: 10px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.2);
+   -webkit-transition: opacity 0.4s ease-in-out;
+   transition: opacity 0.4s ease-in-out;
+   cursor: move;
+   cursor: grab;
    cursor: -webkit-grab;
 }
