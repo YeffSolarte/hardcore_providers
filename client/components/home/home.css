@@ -1,0 +1,19 @@
+.exampleRow {
+   display: flex;
+   flex-direction: row;
+}
+
+.exampleCell {
+   flex-grow: 1;
+}
+
+.exampleRow,
+.exampleCell {
+   margin: 10px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.2);
+   cursor: move;
+   cursor: grab;
+   cursor: -moz-grab;
+   cursor: -webkit-grab;
+}

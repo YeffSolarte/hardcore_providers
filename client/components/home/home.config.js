@@ -5,7 +5,7 @@ function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $pr
 
    $urlRouterProvider.otherwise('/');
 
-   $controllerProvider.register('HomeController', HomeController);
+  /* $controllerProvider.register('HomeController', HomeController);
 
    HomeController.$inject = [];
 
@@ -14,7 +14,7 @@ function homeRoutes($stateProvider, $urlRouterProvider, $controllerProvider, $pr
       let self = this;
 
       self.name = 'home';
-   }
+   }*/
 
    $stateProvider
       .state('home', {
