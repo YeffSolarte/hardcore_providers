@@ -3,25 +3,25 @@ import angular from 'angular';
 import home from './home';
 
 describe('component: home', () => {
-   let component, scope, hero, $componentController;
+   let component, scope, item, $componentController;
 
    beforeEach(window.module(home.name));
 
    beforeEach(inject(($rootScope, _$componentController_) => {
       scope = $rootScope.$new();
       $componentController = _$componentController_;
-      hero = {name: 'Wolverine'};
+      item = {name: 'Jero'};
    }));
 
-   it('should assign the name bindings to the hero object', () => {
+   it('should assign the name bindings to the item object', () => {
       // Here we are passing actual bindings to the component
       component = $componentController('home',
          null,
          {
-            hero: hero
+            item: item
          }
       );
-      expect(component.hero.name).toBe('Wolverine');
+      expect(component.item.name).toBe('Jero');
    });
 
 });
