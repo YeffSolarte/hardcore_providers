@@ -1,38 +1,8 @@
 class HomeController {
 
-   constructor(dragularService, $timeout, $element) {
+   constructor(dragularService, $timeout, $element, HomeService) {
 
-      this.items = [{
-         items: [{
-            content: 'Item a1'
-         }, {
-            content: 'Item a2'
-         }, {
-            content: 'Item a3'
-         }, {
-            content: 'Item a4'
-         }]
-      }, {
-         items: [{
-            content: 'Item b1'
-         }, {
-            content: 'Item b2'
-         }, {
-            content: 'Item b3'
-         }, {
-            content: 'Item b4'
-         }]
-      }, {
-         items: [{
-            content: 'Item c1'
-         }, {
-            content: 'Item c2'
-         }, {
-            content: 'Item c3'
-         }, {
-            content: 'Item c4'
-         }]
-      }];
+      this.items = HomeService.getItems();
 
       $timeout(() => { // timeout due to nested ngRepeat to be ready
          //var container = $element.children().eq(0).children(),
@@ -80,6 +50,6 @@ class HomeController {
 
 }
 
-HomeController.$inject = ['dragularService', '$timeout', '$element'];
+HomeController.$inject = ['dragularService', '$timeout', '$element', 'HomeService'];
 
 export default HomeController;

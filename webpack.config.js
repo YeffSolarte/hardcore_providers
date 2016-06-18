@@ -6,6 +6,8 @@ let path = require('path'),
 module.exports = {
    context: __dirname,
    entry: [
+      'webpack-dev-server/client?http://localhost:8080',
+      'webpack/hot/only-dev-server',
       './client/app.js'
    ],
    output: {
@@ -35,15 +37,16 @@ module.exports = {
          {test: /\.html$/, loader: 'html', exclude: /node_modules/},
          {test: /\.css$/,  loader: 'style!css', exclude: /node_modules/},
          {test: /\.(jpe?g|png|gif|svg)$/i, loader:'url'},
-         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-         { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
-         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
+         {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+         {test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+         {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+         {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
 
       ]
    },
    plugins: [
       //new webpack.optimize.CommonsChunkPlugin('common.js')
+      new webpack.HotModuleReplacementPlugin() // to generate hot update chunks
    ],
    externals: {
    }
