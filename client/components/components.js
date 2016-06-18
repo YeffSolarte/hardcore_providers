@@ -4,7 +4,7 @@ import appLibraries from '../app.libraries';
 import users from './users/users';
 import home from './home/home';
 
-let componentsModule = angular.module('components', [
+let componentsModule = angular.module('app.components', [
       appLibraries.name,
       users.name,
       home.name
