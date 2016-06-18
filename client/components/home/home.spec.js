@@ -3,14 +3,11 @@ import angular from 'angular';
 import home from './home';
 
 describe('component: home', () => {
-   let component, scope, hero, $componentController, $injector;
-
+   let component, scope, hero, $componentController;
 
    beforeEach(window.module(home.name));
 
-   beforeEach(inject(($rootScope, _$componentController_, _$injector_) => {
-      $injector = _$injector_;
-      element = $injector.get('$element');
+   beforeEach(inject(($rootScope, _$componentController_) => {
       scope = $rootScope.$new();
       $componentController = _$componentController_;
       hero = {name: 'Wolverine'};
@@ -21,8 +18,7 @@ describe('component: home', () => {
       component = $componentController('home',
          null,
          {
-            hero: hero,
-            $element: element
+            hero: hero
          }
       );
       expect(component.hero.name).toBe('Wolverine');
