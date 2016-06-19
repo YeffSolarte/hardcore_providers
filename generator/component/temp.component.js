@@ -1,10 +1,9 @@
-import template from './<%= name %>.html';
-import controller from './<%= name %>.html';
+import template from './<%= dashCaseName %>.html';
+import controller from './<%= dashCaseName %>.html';
 
 let <%= name %>Component = {
    template,
    controller,
-   controllerAs: '<%= name %>Ctrl',
    bindings: {}
 };
 

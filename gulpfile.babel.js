@@ -65,17 +65,23 @@ gulp.task('component', () => {
    let cap = (val) => {
       return val.charAt(0).toUpperCase() + val.slice(1);
    };
+
+   let camelToDashCase = (val) => {
+      return val.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+   };
+
    let name = yargs.argv.name;
    let parentPath = yargs.argv.parent || '';
-   let destPath = path.join(resolveToComponents(), parentPath, name);
+   let destPath = path.join(resolveToComponents(), parentPath, camelToDashCase(name));
 
    return gulp.src(paths.blankTemplates)
       .pipe(template({
          name: name,
-         upCaseName: cap(name)
+         upCaseName: cap(name),
+         dashCaseName: camelToDashCase(name)
       }))
       .pipe(rename((path) => {
-         path.basename = path.basename.replace('temp', name);
+         path.basename = path.basename.replace('temp', camelToDashCase(name));
       }))
       .pipe(gulp.dest(destPath));
 });

@@ -1,4 +1,4 @@
-import <%= name %>Module from './<%= name %>';
+import <%= name %>Module from './<%= dashCaseName %>';
 
 xdescribe('<%= name %> component test', () => {
    'use strict';
