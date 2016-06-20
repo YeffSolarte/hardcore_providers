@@ -1,5 +1,7 @@
 'use strict';
 
+import 'babel-register';
+
 import gulp     from 'gulp';
 import sourcemaps from 'gulp-sourcemaps';
 import webpack  from 'webpack-stream';
@@ -86,12 +88,16 @@ gulp.task('component', () => {
       .pipe(gulp.dest(destPath));
 });
 
-gulp.task('renaming', () => {
-   gulp.src("./client/assets/sass/**/*.sass")
+gulp.task('renameFiles', () => {
+
+   gulp.src(resolveToComponents('**/*.js'))
       .pipe(rename((path) => {
-         path.extname = ".styl"
+         console.log('path');
+         console.log(path);
+         path.extname = ".ts";
+
       }))
-      .pipe(gulp.dest("./client/assets/stylus")); // ./client/assets/stylus/**/*.styl
+      .pipe(gulp.dest("client/components"));
 });
 
 gulp.task('default', (done) => {
