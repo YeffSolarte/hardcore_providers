@@ -7,6 +7,7 @@
     "test": "karma start",
     "bundle": "webpack --config webpack.config.dev.js --progress --watch --display-modules --display-reasons",
     "build": "webpack --config webpack.config.pro.js --progress",
+    "profile": "webpack --profile --json >> stats.json",
     "dev": "webpack-dev-server --content-base public --inline --hot --devtool eval"
   },
   "repository": {
