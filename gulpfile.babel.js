@@ -45,7 +45,7 @@ let paths = {
 // use webpack.config.js to build modules
 gulp.task('webpack', () => {
    return gulp.src(paths.entry)
-      .pipe(webpack(require('./webpack.config')))
+      .pipe(webpack(require('./webpack.config.pro.js')))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest(build));
 });
