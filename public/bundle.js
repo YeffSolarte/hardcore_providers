@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "99267682e6402bed850c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4dfd32444f7c2b88972d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -570,7 +570,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/99267682e6402bed850c";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/4dfd32444f7c2b88972d";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -50518,7 +50518,6 @@
 	   _createClass(HomeListDirective, [{
 	      key: 'link',
 	      value: function link(scope, element, attrs) {
-	         var _this = this;
 
 	         var $injector = angular.element(element).injector(),
 	             $compile = $injector.get('$compile'),
@@ -50528,9 +50527,6 @@
 	         var template = '\n         <div class=\'containerVertical\'>\n            <div ng-repeat="item in $ctrl.items" class=\'exampleRow\'>\n               <div class="row-handle">Row {{::$index}}</div>\n               <div class="exampleRow exampleCell containerNested">\n                  <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>\n               </div>\n            </div>\n         </div>';
 
 	         var el = $compile(template)(scope);
-
-	         console.log('--- el ---');
-	         console.dir(el);
 
 	         $timeout(function () {
 	            // timeout due to nested ngRepeat to be ready
@@ -50544,15 +50540,12 @@
 	               moves: function moves(el, container, handle) {
 	                  return handle.classList.contains('row-handle');
 	               },
-	               containersModel: _this.items,
+	               containersModel: scope.$ctrl.items,
 	               nameSpace: 'rows'
 	            });
 
 	            // collect nested contianers
 	            for (var i = 0; i < parentContainers.length; i++) {
-	               console.log('--- parentContainers.eq(i).children()[1] ---');
-	               console.log('--- parentContainers.eq(i).children()[1] ---');
-	               console.log(parentContainers.eq(i).children()[1]);
 	               nestedContainers.push(parentContainers.eq(i).children()[1]);
 	            }
 
@@ -50561,7 +50554,7 @@
 	                  return !handle.classList.contains('row-handle');
 	               },
 	               containersModel: function () {
-	                  var parent = _this.items,
+	                  var parent = scope.$ctrl.items,
 	                      containersModel = [];
 	                  for (var i = 0; i < parent.length; i++) {
 	                     containersModel.push(parent[i].items);
@@ -50572,6 +50565,7 @@
 	            });
 	         }, 10);
 
+	         // finally inject the template
 	         element.append(el);
 	      }
 	   }]);

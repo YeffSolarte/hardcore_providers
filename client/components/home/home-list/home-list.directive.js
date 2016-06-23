@@ -23,9 +23,6 @@ class HomeListDirective {
       
       let el = $compile(template)(scope);
 
-      console.log('--- el ---');
-      console.dir(el);
-
       $timeout(() => { // timeout due to nested ngRepeat to be ready
 
          //var container = element.children().eq(2),
@@ -37,15 +34,12 @@ class HomeListDirective {
             moves: (el, container, handle) => {
                return handle.classList.contains('row-handle');
             },
-            containersModel: this.items,
+            containersModel: scope.$ctrl.items,
             nameSpace: 'rows'
          });
 
          // collect nested contianers
          for (var i = 0; i < parentContainers.length; i++) {
-            console.log('--- parentContainers.eq(i).children()[1] ---');
-            console.log('--- parentContainers.eq(i).children()[1] ---');
-            console.log(parentContainers.eq(i).children()[1]);
             nestedContainers.push(parentContainers.eq(i).children()[1]);
          }
 
@@ -54,7 +48,7 @@ class HomeListDirective {
                return !handle.classList.contains('row-handle');
             },
             containersModel: (() => {
-               var parent = this.items,
+               var parent = scope.$ctrl.items,
                   containersModel = [];
                for (var i = 0; i < parent.length; i++) {
                   containersModel.push(parent[i].items);
@@ -66,6 +60,7 @@ class HomeListDirective {
 
       }, 10);
 
+      // finally inject the template
       element.append(el);
       
    }
