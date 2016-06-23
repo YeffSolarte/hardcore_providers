@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bc3b6331f1bd5b1fb184"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e35fb68bab2ddc14f14d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -570,7 +570,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/bc3b6331f1bd5b1fb184";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/e35fb68bab2ddc14f14d";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -50029,7 +50029,7 @@
 /* 94 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n   </p>\n\n   <div home-list> </div>\n</div>\n\n";
+	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n   </p>\n\n   <div home-list items=\"$ctrl.items\"> </div>\n</div>\n\n";
 
 /***/ },
 /* 95 */
@@ -50509,10 +50509,9 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var HomeListDirective = function () {
-	   function HomeListDirective(dragularService) {
+	   function HomeListDirective() {
 	      _classCallCheck(this, HomeListDirective);
 
-	      this.scope = {};
 	      this.restrict = 'A';
 	   }
 
@@ -50520,16 +50519,23 @@
 	      key: 'link',
 	      value: function link(scope, element, attrs) {
 
+	         var $injector = angular.element(element).injector(),
+	             $compile = $injector.get('$compile');
+
+	         var items = scope.$eval(attrs.items);
+
 	         var template = '\n         <div class=\'containerVertical\'>\n            <div ng-repeat="item in $ctrl.items" class=\'exampleRow\'>\n               <div class="row-handle">Row {{::$index}}</div>\n               <div class="exampleRow exampleCell containerNested">\n                  <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>\n               </div>\n            </div>\n         </div>';
 
-	         element.append(template);
+	         var el = $compile(template)(scope);
+
+	         element.append(el);
 	      }
 	   }]);
 
 	   return HomeListDirective;
 	}();
 
-	HomeListDirective.$inject = ['dragularService'];
+	HomeListDirective.$inject = [];
 
 	exports.default = HomeListDirective;
 
