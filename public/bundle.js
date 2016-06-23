@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "02eb1e1410277e6c8a4a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bc3b6331f1bd5b1fb184"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -570,7 +570,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/02eb1e1410277e6c8a4a";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/bc3b6331f1bd5b1fb184";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -50488,7 +50488,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var homeListModule = _angular2.default.module('app.components.home-list', [_app2.default.name]).directive('homeList', _homeList2.default);
+	var homeListModule = _angular2.default.module('app.components.home-list', [_app2.default.name]).directive('homeList', function () {
+	      return new _homeList2.default();
+	});
 
 	exports.default = homeListModule;
 
@@ -50501,22 +50503,33 @@
 	Object.defineProperty(exports, "__esModule", {
 	   value: true
 	});
-	HomeListDirective.$inject = ['dragularService'];
 
-	function HomeListDirective(dragularService) {
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	   return {
-	      scope: {},
-	      restrict: 'A',
-	      link: link
-	   };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	   function link(scope, element, attrs) {
-	      var template = '\n         <div class=\'containerVertical\'>\n            <div ng-repeat="item in $ctrl.items" class=\'exampleRow\'>\n               <div class="row-handle">Row {{::$index}}</div>\n               <div class="exampleRow exampleCell containerNested">\n                  <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>\n               </div>\n            </div>\n         </div>';
+	var HomeListDirective = function () {
+	   function HomeListDirective(dragularService) {
+	      _classCallCheck(this, HomeListDirective);
 
-	      element.append(template);
+	      this.scope = {};
+	      this.restrict = 'A';
 	   }
-	}
+
+	   _createClass(HomeListDirective, [{
+	      key: 'link',
+	      value: function link(scope, element, attrs) {
+
+	         var template = '\n         <div class=\'containerVertical\'>\n            <div ng-repeat="item in $ctrl.items" class=\'exampleRow\'>\n               <div class="row-handle">Row {{::$index}}</div>\n               <div class="exampleRow exampleCell containerNested">\n                  <div ng-repeat="item in item.items" class="exampleCell">{{item.content}}</div>\n               </div>\n            </div>\n         </div>';
+
+	         element.append(template);
+	      }
+	   }]);
+
+	   return HomeListDirective;
+	}();
+
+	HomeListDirective.$inject = ['dragularService'];
 
 	exports.default = HomeListDirective;
 

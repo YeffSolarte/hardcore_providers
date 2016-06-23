@@ -1,14 +1,13 @@
-HomeListDirective.$inject = ['dragularService'];
 
-function HomeListDirective(dragularService) {
+class HomeListDirective {
    
-   return {
-      scope: {},
-      restrict: 'A',
-      link
-   };
+   constructor(dragularService) {
+      this.scope = {};
+      this.restrict = 'A';
+   }
    
-   function link(scope, element, attrs) {
+   link(scope, element, attrs) {
+      
       let template =  `
          <div class='containerVertical'>
             <div ng-repeat="item in $ctrl.items" class='exampleRow'>
@@ -24,5 +23,7 @@ function HomeListDirective(dragularService) {
    }
    
 }
+
+HomeListDirective.$inject = ['dragularService'];
 
 export default HomeListDirective;
