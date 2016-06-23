@@ -7,9 +7,9 @@ class HomeListDirective {
    link(scope, element, attrs) {
       
       let $injector = angular.element(element).injector(),
-          $compile = $injector.get('$compile');
-
-      let items  = scope.$eval(attrs.items);
+         $compile = $injector.get('$compile'),
+         $timeout = $injector.get('$timeout'),
+         dragularService = $injector.get('dragularService');
 
       let template = `
          <div class='containerVertical'>
@@ -20,8 +20,51 @@ class HomeListDirective {
                </div>
             </div>
          </div>`;
-
+      
       let el = $compile(template)(scope);
+
+      console.log('--- el ---');
+      console.dir(el);
+
+      $timeout(() => { // timeout due to nested ngRepeat to be ready
+
+         //var container = element.children().eq(2),
+         var container = el,
+            parentContainers = container.children(),
+            nestedContainers = [];
+
+         dragularService(container, {
+            moves: (el, container, handle) => {
+               return handle.classList.contains('row-handle');
+            },
+            containersModel: this.items,
+            nameSpace: 'rows'
+         });
+
+         // collect nested contianers
+         for (var i = 0; i < parentContainers.length; i++) {
+            console.log('--- parentContainers.eq(i).children()[1] ---');
+            console.log('--- parentContainers.eq(i).children()[1] ---');
+            console.log(parentContainers.eq(i).children()[1]);
+            nestedContainers.push(parentContainers.eq(i).children()[1]);
+         }
+
+         dragularService(nestedContainers, {
+            moves: (el, container, handle) => {
+               return !handle.classList.contains('row-handle');
+            },
+            containersModel: (() => {
+               var parent = this.items,
+                  containersModel = [];
+               for (var i = 0; i < parent.length; i++) {
+                  containersModel.push(parent[i].items);
+               }
+               return containersModel;
+            })(),
+            nameSpace: 'cells'
+         });
+
+      }, 10);
 
       element.append(el);
       
