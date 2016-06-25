@@ -1,6 +1,6 @@
 'use strict';
 
-import 'babel-register';
+//import 'babel-register';
 
 import gulp     from 'gulp';
 import sourcemaps from 'gulp-sourcemaps';
