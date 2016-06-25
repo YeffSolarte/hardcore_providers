@@ -4,7 +4,7 @@ let usersComponent = {
    template,
    controller: 'UsersController',
    bindings: {
-      items: '='
+      items: '<'
    }
 };
 

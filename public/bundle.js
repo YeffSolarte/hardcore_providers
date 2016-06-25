@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4dfd32444f7c2b88972d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1728697d7acd23bdeb5d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -570,7 +570,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "http://localhost:3000/assets/4dfd32444f7c2b88972d";
+/******/ 	__webpack_require__.p = "http://localhost:3000/assets/1728697d7acd23bdeb5d";
 
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -39940,8 +39940,8 @@
 	            options = arg0 || {};
 	            initialContainers = []; // containers are not provided on init
 	         } else if (typeof arg0 === 'string') {
-	               initialContainers = document.querySelectorAll(arg0);
-	            }
+	            initialContainers = document.querySelectorAll(arg0);
+	         }
 	      }
 
 	      function extendDefaultOptions() {
@@ -40058,8 +40058,8 @@
 	               // see also: https://github.com/bevacqua/dragula/issues/208
 	               context.item.focus(); // fixes https://github.com/bevacqua/dragula/issues/176
 	            } else {
-	                  e.preventDefault(); // fixes https://github.com/bevacqua/dragula/issues/155
-	               }
+	               e.preventDefault(); // fixes https://github.com/bevacqua/dragula/issues/155
+	            }
 	         }
 	      }
 
@@ -40752,9 +40752,9 @@
 	         // is array-like
 	         return Array.prototype.slice.call(all, startIndex); // convert to vanilla js array
 	      } else {
-	            // is one element
-	            return [all];
-	         }
+	         // is one element
+	         return [all];
+	      }
 	   }
 
 	   function whichMouseButton(e) {
@@ -49920,7 +49920,7 @@
 /* 90 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Users</h1>\n\n<pre>{{ $ctrl.name | json }}</pre>";
+	module.exports = "<h1>Users</h1>\r\n\r\n<pre>{{ $ctrl.name | json }}</pre>";
 
 /***/ },
 /* 91 */
@@ -49979,10 +49979,10 @@
 	   $urlRouterProvider.otherwise('/');
 
 	   /* $controllerProvider.register('HomeController', HomeController);
-	     HomeController.$inject = [];
-	     function HomeController() {
-	        let self = this;
-	        self.name = 'home';
+	      HomeController.$inject = [];
+	      function HomeController() {
+	         let self = this;
+	         self.name = 'home';
 	    }*/
 
 	   $stateProvider.state('home', {
@@ -50029,7 +50029,7 @@
 /* 94 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"Home\">\n   <div class=\"page-header\">\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\n   </div>\n\n   <p>\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\n\n      So I want to make this 'app' with just providers to see what new things we can learn.\n   </p>\n\n   <div home-list items=\"$ctrl.items\"> </div>\n</div>\n\n";
+	module.exports = "<div class=\"Home\">\r\n   <div class=\"page-header\">\r\n      <h1>Learn AngularJs Providers <small>by using then excessively </small></h1>\r\n   </div>\r\n\r\n   <p>\r\n      By using providers we can make configurable stuff, dynamic logic, lazy loading.\r\n\r\n      So I want to make this 'app' with just providers to see what new things we can learn.\r\n   </p>\r\n\r\n   <div home-list items=\"$ctrl.items\"> </div>\r\n</div>\r\n\r\n";
 
 /***/ },
 /* 95 */
@@ -50088,7 +50088,7 @@
 
 
 	// module
-	exports.push([module.id, ".gu-mirror {\n   position: fixed !important;\n   margin: 0 !important;\n   width: z-index 9999 !important;\n   opacity: 0.8;\n}\n\n.gu-hide {\n   display: none !important;\n}\n\n.gu-unselectable {\n   -webkit-user-select: none !important;\n   -moz-user-select: none !important;\n   -ms-user-select: none !important;\n   user-select: none !important;\n}\n\n.gu-transit {\n   opacity: 0.2;\n}\n\n\n.exampleRow {\n   display: flex;\n   flex-direction: row;\n}\n\n.exampleCell {\n   flex-grow: 1;\n}\n\n.exampleRow,\n.exampleCell {\n   margin: 10px;\n   padding: 10px;\n   background-color: rgba(0, 0, 0, 0.2);\n   cursor: move;\n   cursor: grab;\n   cursor: -moz-grab;\n   cursor: -webkit-grab;\n}\n\n.containerVertical div, .gu-mirror {\n   margin: 10px;\n   padding: 10px;\n   background-color: rgba(0, 0, 0, 0.2);\n   -webkit-transition: opacity 0.4s ease-in-out;\n   transition: opacity 0.4s ease-in-out;\n   cursor: move;\n   cursor: grab;\n   cursor: -webkit-grab;\n}\n", ""]);
+	exports.push([module.id, ".gu-mirror {\r\n   position: fixed !important;\r\n   margin: 0 !important;\r\n   width: z-index 9999 !important;\r\n   opacity: 0.8;\r\n}\r\n\r\n.gu-hide {\r\n   display: none !important;\r\n}\r\n\r\n.gu-unselectable {\r\n   -webkit-user-select: none !important;\r\n   -moz-user-select: none !important;\r\n   -ms-user-select: none !important;\r\n   user-select: none !important;\r\n}\r\n\r\n.gu-transit {\r\n   opacity: 0.2;\r\n}\r\n\r\n\r\n.exampleRow {\r\n   display: flex;\r\n   flex-direction: row;\r\n}\r\n\r\n.exampleCell {\r\n   flex-grow: 1;\r\n}\r\n\r\n.exampleRow,\r\n.exampleCell {\r\n   margin: 10px;\r\n   padding: 10px;\r\n   background-color: rgba(0, 0, 0, 0.2);\r\n   cursor: move;\r\n   cursor: grab;\r\n   cursor: -moz-grab;\r\n   cursor: -webkit-grab;\r\n}\r\n\r\n.containerVertical div, .gu-mirror {\r\n   margin: 10px;\r\n   padding: 10px;\r\n   background-color: rgba(0, 0, 0, 0.2);\r\n   -webkit-transition: opacity 0.4s ease-in-out;\r\n   transition: opacity 0.4s ease-in-out;\r\n   cursor: move;\r\n   cursor: grab;\r\n   cursor: -webkit-grab;\r\n}\r\n", ""]);
 
 	// exports
 
